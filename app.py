@@ -1062,9 +1062,6 @@ cinema_theme = gr.themes.Soft(
 
 with gr.Blocks(
     title="CineAgent | Real-Time AI Movie Recommender",
-    theme=cinema_theme,
-    css=CINEMA_CSS,
-    head=CINEMA_HEAD
 ) as demo:
     
     # Ambient Cinema Video Background Layer & Hero Header
@@ -1125,7 +1122,6 @@ with gr.Blocks(
                     chatbot = gr.Chatbot(
                         label="Conversation with CineAgent",
                         height=420,
-                        type="messages",
                         value=[
                             {"role": "assistant", "content": "👋 **Hello! I'm your CineAgent AI.**\n\nI can recommend movies across **all cinema worldwide** and fetch **real-time data** (where to stream, trending titles, live box office).\n\nAsk me anything!"}
                         ],
@@ -1485,8 +1481,13 @@ Modern recommendation systems go beyond static lookups. CineAgent implements a *
                 """)
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 7860))
+
     demo.launch(
         server_name="0.0.0.0",
-        server_port=int(os.getenv("PORT", "7860")),
-        inbrowser=False
+        server_port=port,
+        inbrowser=False,
+        theme=cinema_theme,
+        css=CINEMA_CSS,
+        head=CINEMA_HEAD
     )
