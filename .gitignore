@@ -1,0 +1,26 @@
+# Environment Variables & Sensitive Secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Keep example environment templates tracked
+!.example.env
+!.env.example
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# System & IDE Files
+.system_generated/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Scratch & Temporary Test Files
+scratch/
